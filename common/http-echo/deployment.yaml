@@ -4,6 +4,7 @@ metadata:
   name: api
 spec:
   replicas: 1
+  minReadySeconds: 5
   selector:
     matchLabels:
       app.kubernetes.io/component: api
@@ -29,6 +30,8 @@ spec:
             - name: http
               containerPort: 8080
           readinessProbe:
+            periodSeconds: 5
+            timeoutSeconds: 2
             httpGet:
               path: /
               port: http
