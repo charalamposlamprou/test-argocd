@@ -7,6 +7,8 @@ labels:
   - pairs:
       app.kubernetes.io/name: payment
     includeSelectors: true
+patches:
+  - path: resources.yaml
 configMapGenerator:
   - name: response
     literals:

@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: demo-prod
 resources:
   - ../../base
+  - disruption-budget.yaml
 replicas:
   - name: payment-api
-    count: 3
+    count: 4

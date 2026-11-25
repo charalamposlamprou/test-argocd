@@ -2,13 +2,13 @@
 
 Payment and wallet are internal HTTP echo services managed with Argo CD. Each service has a Kustomize base and three deployable environment overlays. Each overlay renders a Deployment, ClusterIP Service, and generated response ConfigMap.
 
-| Environment | Kubernetes namespace | Replicas per service by default |
-| --- | --- | --- |
-| dev | `demo` | 1 |
-| staging | `demo-staging` | 2 |
-| prod | `demo-prod` | 3 |
+| Environment | Kubernetes namespace | Payment replicas | Wallet replicas |
+| --- | --- | ---: | ---: |
+| dev | `demo` | 2 | 1 |
+| staging | `demo-staging` | 3 | 3 |
+| prod | `demo-prod` | 4 | 3 |
 
-All three environments use namespaces on the same demo cluster.
+All three environments use namespaces on the same demo cluster. In prod, each service has a PodDisruptionBudget allowing one unavailable pod during voluntary disruptions.
 
 ## Where to make a change
 

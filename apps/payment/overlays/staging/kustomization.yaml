@@ -5,4 +5,4 @@ resources:
   - ../../base
 replicas:
   - name: payment-api
-    count: 2
+    count: 3

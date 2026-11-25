@@ -5,4 +5,9 @@ resources:
   - ../../base
 replicas:
   - name: wallet-api
-    count: 2
+    count: 3
+configMapGenerator:
+  - name: wallet-response
+    behavior: merge
+    literals:
+      - RESPONSE=wallet demo ready v2
