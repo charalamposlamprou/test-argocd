@@ -11,4 +11,4 @@ jobs:
       contents: read
       actions: read
       pull-requests: write
-    uses: charalamposlamprou/kubernetes-manifest-semantic-diff/.github/workflows/manifest-diff.yaml@4af7e863d36f0c58ef096cb1c568ee2049c92526
+    uses: charalamposlamprou/kubernetes-manifest-semantic-diff/.github/workflows/manifest-diff.yaml@89c108ed15a80554c2922a2c186302ba9132b5f9
