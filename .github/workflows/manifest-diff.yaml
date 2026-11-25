@@ -1,0 +1,14 @@
+name: Kubernetes manifest review
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  review:
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: write
+    uses: charalamposlamprou/kubernetes-manifest-semantic-diff/.github/workflows/manifest-diff.yaml@4a1d41e831ef8b76f2b36dd75590ac194e134519

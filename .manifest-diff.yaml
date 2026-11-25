@@ -1,0 +1,17 @@
+version: 1
+targets:
+  - name: payment-demo
+    type: kustomize
+    application: payment
+    environment: demo
+    path: apps/payment
+  - name: wallet-demo
+    type: kustomize
+    application: wallet
+    environment: demo
+    path: apps/wallet
+  - name: argocd-bootstrap
+    type: kustomize
+    application: argocd
+    environment: demo
+    path: argocd
