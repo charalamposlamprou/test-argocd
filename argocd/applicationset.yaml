@@ -7,22 +7,35 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - list:
-        elements:
-          - service: payment
-          - service: wallet
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/charalamposlamprou/test-argocd.git
+              revision: main
+              directories:
+                - path: apps/*/base
+          - list:
+              elements:
+                - environment: dev
+                  namespace: demo
+                - environment: staging
+                  namespace: demo-staging
+                - environment: prod
+                  namespace: demo-prod
   template:
     metadata:
-      name: 'demo-{{.service}}'
+      name: '{{.namespace}}-{{index .path.segments 1}}'
+      labels:
+        environment: '{{.environment}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/charalamposlamprou/test-argocd.git
         targetRevision: main
-        path: 'apps/{{.service}}'
+        path: 'apps/{{index .path.segments 1}}/overlays/{{.environment}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: demo
+        namespace: '{{.namespace}}'
       syncPolicy:
         automated:
           prune: true
