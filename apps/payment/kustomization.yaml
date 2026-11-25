@@ -12,3 +12,6 @@ configMapGenerator:
   - name: response
     literals:
       - RESPONSE=payment demo online
+replicas:
+  - name: api
+    count: 2

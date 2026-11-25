@@ -11,4 +11,4 @@ labels:
 configMapGenerator:
   - name: response
     literals:
-      - RESPONSE=wallet demo online
+      - RESPONSE=wallet demo ready
