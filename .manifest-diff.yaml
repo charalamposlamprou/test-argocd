@@ -3,13 +3,33 @@ targets:
   - name: payment-demo
     type: kustomize
     application: payment
-    environment: demo
-    path: apps/payment
+    environment: dev
+    path: apps/payment/overlays/dev
+  - name: payment-staging
+    type: kustomize
+    application: payment
+    environment: staging
+    path: apps/payment/overlays/staging
+  - name: payment-prod
+    type: kustomize
+    application: payment
+    environment: prod
+    path: apps/payment/overlays/prod
   - name: wallet-demo
     type: kustomize
     application: wallet
-    environment: demo
-    path: apps/wallet
+    environment: dev
+    path: apps/wallet/overlays/dev
+  - name: wallet-staging
+    type: kustomize
+    application: wallet
+    environment: staging
+    path: apps/wallet/overlays/staging
+  - name: wallet-prod
+    type: kustomize
+    application: wallet
+    environment: prod
+    path: apps/wallet/overlays/prod
   - name: argocd-bootstrap
     type: kustomize
     application: argocd
